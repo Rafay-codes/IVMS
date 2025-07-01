@@ -1,6 +1,0 @@
-belt
-no belt
-mobile
-vehicle
-steering wheel
-plate
