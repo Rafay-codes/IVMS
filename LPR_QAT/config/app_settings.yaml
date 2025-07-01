@@ -1,0 +1,8 @@
+DETECTIONS:
+  CONF_THRES: 0.01
+  DEVICE: '0'
+  IOU_THRES: 0.01
+  OCR:
+    USE_LEFT_EDGE: True # when flag is set, then left edge of the vieport will be used to capture 2nd frame.
+    IMG_SIZE: 640
+    WEIGHTS: LPR_QAT/weights/ktclpr_v4_1L_v7_s_pretrained.pt
