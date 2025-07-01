@@ -1,0 +1,9 @@
+belt
+no belt
+mobile
+vehicle
+steering wheel
+phone holder
+plate
+tint on
+tint off

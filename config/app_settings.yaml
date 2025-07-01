@@ -1,0 +1,85 @@
+PGIE_CONFIG: config_infer_primary_yoloV5.txt
+LANE_ENGINE: models/culane_res18_fp16.engine
+LOG_LEVEL: ERROR # DEBUG, INFO, WARN, ERROR
+ANPR_ENABLE: True
+DETECTIONS:
+  OCR:
+    USE_LEFT_EDGE: True # when flag is set, then left edge of the vieport will be used to capture 2nd frame.
+    IMG_SIZE: 640
+    WEIGHTS: weights/qat_anpr.pt
+VIDEO_OUTPUT:
+  EVENT_RECORDING_FOLDER: /home/nvidia/ivms/event_recordings
+  LPR_FOLDER: /home/nvidia/ivms/.lpr
+  VIOLATION_FOLDER: /home/nvidia/ivms/violations
+  FORMAT: XVID
+  DURATION: 12
+  MUXER:
+    WIDTH: 1920
+    HEIGHT: 1080
+  TILER:
+    WIDTH: 1920
+    HEIGHT: 1080
+
+CAMERA_CONTROL:
+  - "brightness=10,contrast=160,saturation=100,gain=5,sharpness=160,exposure_auto=1,exposure_absolute=9"
+  - ""
+  #- "horizontal_flip=1,vertical_flip=1,frame_rate_control=60"
+  #- "horizontal_flip=1,vertical_flip=1,frame_rate_control=60"
+  #- "horizontal_flip=1,vertical_flip=1,frame_rate_control=60"
+  #- "horizontal_flip=1,vertical_flip=1,frame_rate_control=60"
+  #- "horizontal_flip=1,vertical_flip=1,frame_rate_control=60"
+  #- "horizontal_flip=1,vertical_flip=1,frame_rate_control=60"
+  #- "horizontal_flip=1,vertical_flip=1,frame_rate_control=60"
+  #- "horizontal_flip=1,vertical_flip=1,frame_rate_control=60"
+
+QUEUES:
+  EVENTS:
+    IP: '127.0.0.1'
+    PORT: '5672'
+    USER: 'guest'
+    PASS: 'guest'
+    QUEUE: 'events_queue'
+    EX_NAME: 'marked_events'
+    EX_TYPE: 'topic'
+    ROUTE_KEY: 'events.create'
+    DURABLE: False
+    
+  PLATES:
+    IP: '127.0.0.1'
+    PORT: '5672'
+    USER: 'guest'
+    PASS: 'guest'
+    QUEUE: 'plates_queue'
+    EX_NAME: 'marked_events'
+    EX_TYPE: 'topic'
+    ROUTE_KEY: 'plates.create'
+    DURABLE: False
+API:
+  PATHS:
+    BASE_URL: "http://2.x.10.69:8000/api/v1/"
+    AUTH: 'dj-rest-auth/login/'
+    STATUS: 'eventstatus/'
+    EVENTS: 'events/'
+    PLATES: 'plates/'
+    VIOLATION_TYPES: "violationtypes/"
+    CREDS_FILE: 'api_creds.yaml' # Ensure this file is present in this directory
+
+LABEL:
+  DEVICE_ID: '12345'
+  HEIGHT: 80
+  PLACE: '123'
+  RADAR_ID: 00097523774
+  SITECODE: '12345'
+  NAME: 'ivms'
+  
+# Simple list of one ore more uri for input video sources
+VIDEO_SOURCES:
+  - /dev/video0
+  #- /dev/video1
+  #- /dev/video2
+  #- /dev/video3
+  #- /dev/video4
+  #- /dev/video5
+  #- /dev/video6
+  #- /dev/video7
+  #- file:///home/nvidia/ivms/recordings/20241029/0/152624_Part03.mkv
