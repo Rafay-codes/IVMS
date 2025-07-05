@@ -101,6 +101,7 @@ mkdir -p /srv/ivms/detect/logs
 mkdir -p /srv/ivms/detect/tmp
 
 mkdir -p /home/nvidia/ivms/event_recordings
+mkdir -p /home/nvidia/ivms/recordings
 mkdir -p /home/nvidia/ivms/lpr
 mkdir -p /home/nvidia/ivms/violations
 
