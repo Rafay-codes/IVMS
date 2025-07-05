@@ -79,7 +79,7 @@ python3 -m venv /srv/ivms_venv
 source /srv/ivms_venv/bin/activate
 pip install build wheel setuptools==69.5.1 Cython
 # paddlepaddle-gpu supports only upto protobuf==3.20.0 and opencv==4.6.0.66
-pip install numpy easydict pycairo PyGObject pika shapely lxml pyyaml ipython tqdm psutil scipy protobuf==3.20.0 absl_py astor requests paddleocr $WD/whl/*.whl opencv-python==4.6.0.66 seaborn matplotlib onnx==1.12 pycuda
+pip install numpy easydict pycairo PyGObject pika shapely lxml==5.4.0 pyyaml ipython tqdm psutil scipy protobuf==3.20.0 absl_py astor requests paddleocr==2.10.0 $WD/whl/*.whl opencv-python==4.6.0.66 seaborn==0.13.2 matplotlib==3.7.5 onnx==1.12 pycuda
 #ln -s /usr/lib/python3.8/dist-packages/tensorrt /srv/ivms_venv/lib/python3.8/site-packages/tensorrt
 
 # torchvision
